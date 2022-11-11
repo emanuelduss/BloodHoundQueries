@@ -1,15 +1,19 @@
 # Custom Neo4j Queries
 
+## Introduction
+
 The following queries are to be used in Neo4j Browser directly (by default http://localhost:7474/browser/).
 
-## LAPS
+## Queries
+
+### LAPS
 
 Show how many computers have LAPS enabled and disabled:
 ```cypher
 MATCH (c:Computer) RETURN c.haslaps, COUNT(*)
 ```
 
-## Local Administrators
+### Local Administrators
 
 In certain cases, the groups being local administrators are added locally on the computer and not deployed via GPO. In that case, the "AdminTo" edges are not visible in BloodHound.
 
