@@ -1,23 +1,31 @@
-## BloodHoundLoader
-[BloodHoundLoader.py](BloodHoundLoader.py) is a tool to set the value of an attribute in BloodHound (e.g. high value, owned...) for all the items contained in a file.
+# BloodHound Loader
+
+## Introduction
+
+[BloodHoundLoader.py](BloodHoundLoader.py) is a tool to set the value of an
+attribute in BloodHound (e.g. high value, owned...) for all the items contained
+in a file.
+
+## Installation
 
 It should be used with Python 3 and with the Neo4j module installed since it is run directly against the Neo4j database:
-```
+```bash
 pip3 install --upgrade neo4j
 ```
+## Usage Examples
 
 Set all the computers in the file "high_value.txt" to high value targets:
-```
+```bash
 python3 BloodHoundLoader.py --dburi bolt://localhost:7687 --dbuser neo4j --dbpassword BloodHound --mode h high_value.txt
 ```
 
 Set all the computers in the file "owned.txt" to owned principals:
-```
+```bash
 python3 BloodHoundLoader.py --mode o owned.txt
 ```
 
 Set all the computers in the file "no_smb_signing.txt" to "hassigning = false", in order to use them with the queries "All Shortest Paths from no Signing to *":
-```
+```bash
 python3 BloodHoundLoader.py --mode s no_smb_signing.txt
 ```
 
@@ -29,7 +37,7 @@ GUEST@ACME.COM
 ```
 
 Create new AdminTo edges based on the tuples in the file "adminto.txt":
-```
+```bash
 python3 BloodHoundLoader.py --edge AdminTo adminto.txt
 ```
 
@@ -40,8 +48,9 @@ SERVER ADMINS@ACME.COM,COMPUTER1.ACME.COM
 EDWARD.NIGMA@ACME.COM,RIDDLE.ACME.COM
 ```
 
-Full help:
-```
+## Full Help
+
+```bash
 python3 BloodHoundLoader.py --help
 usage: BloodHoundLoader.py [-h] [--dburi DATABASEURI] [--dbuser DATABASEUSER] [--dbpassword DATABASEPASSWORD] (-m {h,o,s} | -o OPERATION) [-c COMMENT] [-v] filePaths [filePaths ...]
 
