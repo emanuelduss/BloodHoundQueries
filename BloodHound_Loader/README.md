@@ -14,17 +14,17 @@ pip3 install --upgrade neo4j
 ```
 ## Usage Examples
 
-Set all the computers in the file "high_value.txt" to high value targets:
+Set all the computers in the file `high_value.txt` to high value targets:
 ```bash
 python3 BloodHoundLoader.py --dburi bolt://localhost:7687 --dbuser neo4j --dbpassword BloodHound --mode h high_value.txt
 ```
 
-Set all the computers in the file "owned.txt" to owned principals:
+Set all the computers in the file `owned.txt` to owned principals:
 ```bash
 python3 BloodHoundLoader.py --mode o owned.txt
 ```
 
-Set all the computers in the file "no_smb_signing.txt" to "hassigning = false", in order to use them with the queries "All Shortest Paths from no Signing to *":
+Set all the computers in the file `no_smb_signing.txt` to `hassigning = false`, in order to use them with the queries `All Shortest Paths from no Signing to *`:
 ```bash
 python3 BloodHoundLoader.py --mode s no_smb_signing.txt
 ```
@@ -36,7 +36,7 @@ COMPUTER.ACME.COM
 GUEST@ACME.COM
 ```
 
-Create new AdminTo edges based on the tuples in the file "adminto.txt":
+Create new AdminTo edges based on the tuples in the file `adminto.txt`:
 ```bash
 python3 BloodHoundLoader.py --edge AdminTo adminto.txt
 ```
